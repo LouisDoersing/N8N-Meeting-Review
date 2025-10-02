@@ -1,0 +1,28 @@
+
+
+/* Basis-Styles für den Typing-Header */
+.text-type {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: pre-wrap; /* respektiert Zeilenumbrüche */
+}
+
+.text-type__content {
+  line-height: 1.1;
+}
+
+.text-type__cursor {
+  display: inline-block;
+  margin-left: 0.125em;
+  user-select: none;
+}
+
+.text-type__cursor--hidden {
+  visibility: hidden;
+}
+
+/* Optional: große Header-Optik (kannst du auch über Tailwind/Utility-Klassen lösen) */
+.text-type--header {
+  font-weight: 800;
+  font-size: clamp(2.25rem, 6vw, 4.5rem); /* ~text-4xl bis ~text-7xl */
+}
