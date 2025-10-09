@@ -6,6 +6,7 @@ import { useState } from 'react';
 import FileUploader from "./components/FileUploader.jsx";
 
 
+
 function App() {
     const handleAnimationComplete = () => {
         console.log('Animation completed!');
@@ -58,7 +59,6 @@ function App() {
             textColors={['#e2e8f0', '#cbd5e1', '#f1f5f9']}
           />
         </h2>
-
         {/* --- Stepper-Section --- */}
         <div
           style={{
