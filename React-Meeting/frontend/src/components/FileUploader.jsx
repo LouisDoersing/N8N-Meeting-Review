@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './FileUploader.css';
 
 export default function FileUploader({ onFileSelect }) {
     const [file, setFile] = useState(null);
@@ -23,9 +24,7 @@ export default function FileUploader({ onFileSelect }) {
                 />
                 <label
                     htmlFor="file-input"
-                    className="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg inline-block"
-                >
-                    Datei auswählen
+                    className="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg inline-block">
                 </label>
             </div>
 
@@ -40,11 +39,6 @@ export default function FileUploader({ onFileSelect }) {
                 </div>
             )}
 
-            {!file && (
-                <div className="text-center text-gray-500 text-sm">
-                    <p>Noch keine Datei ausgewählt</p>
-                </div>
-            )}
         </div>
     );
 }

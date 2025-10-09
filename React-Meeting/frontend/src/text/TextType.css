@@ -10,6 +10,11 @@
 .text-type__content {
   line-height: 1.1;
 }
+.blur-text-shift {
+  display: block;
+  width: 480px;
+  margin-left: 350px;   /* schiebt nach rechts */
+}
 
 .text-type__cursor {
   display: inline-block;

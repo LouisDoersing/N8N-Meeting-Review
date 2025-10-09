@@ -2,6 +2,8 @@ import React, { useState, Children, useRef, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import './Stepper.css';
 
+
+
 export default function Stepper({
   children,
   initialStep = 1,
@@ -66,79 +68,78 @@ export default function Stepper({
   };
 
   return (
-    <div className="outer-container" {...rest}>
-      <div className={`step-circle-container ${stepCircleContainerClassName}`} style={{ border: '1px solid #222' }}>
+
+      <div className={`step-circle-container ${stepCircleContainerClassName}`}>
+
         <div className={`step-indicator-row ${stepContainerClassName}`}>
           {stepsArray.map((_, index) => {
             const stepNumber = index + 1;
             const isNotLastStep = index < totalSteps - 1;
             return (
-              <React.Fragment key={stepNumber}>
-                {renderStepIndicator ? (
-                  renderStepIndicator({
-                    step: stepNumber,
-                    currentStep,
-                    onStepClick: clicked => {
-                      setDirection(clicked > currentStep ? 1 : -1);
-                      updateStep(clicked);
-                    }
-                  })
-                ) : (
-                  <StepIndicator
-                    step={stepNumber}
-                    disableStepIndicators={disableStepIndicators}
-                    currentStep={currentStep}
-                    onClickStep={clicked => {
-                      setDirection(clicked > currentStep ? 1 : -1);
-                      updateStep(clicked);
-                    }}
-                  />
-                )}
-                {isNotLastStep && <StepConnector isComplete={currentStep > stepNumber} />}
-              </React.Fragment>
+                <React.Fragment key={stepNumber}>
+                  {renderStepIndicator ? (
+                      renderStepIndicator({
+                        step: stepNumber,
+                        currentStep,
+                        onStepClick: clicked => {
+                          setDirection(clicked > currentStep ? 1 : -1);
+                          updateStep(clicked);
+                        }
+                      })
+                  ) : (
+                      <StepIndicator
+                          step={stepNumber}
+                          disableStepIndicators={disableStepIndicators}
+                          currentStep={currentStep}
+                          onClickStep={clicked => {
+                            setDirection(clicked > currentStep ? 1 : -1);
+                            updateStep(clicked);
+                          }}
+                      />
+                  )}
+                  {isNotLastStep && <StepConnector isComplete={currentStep > stepNumber}/>}
+                </React.Fragment>
             );
           })}
         </div>
 
-        {/* STEP CONTENT WRAPPER - DIESER FEHLTE */}
         <StepContentWrapper
-          isCompleted={isCompleted}
-          currentStep={currentStep}
-          direction={direction}
-          className={`step-content-default ${contentClassName}`}
+            isCompleted={isCompleted}
+            currentStep={currentStep}
+            direction={direction}
+            className={`step-content-default ${contentClassName}`}
         >
           {stepsArray[currentStep - 1]}
         </StepContentWrapper>
 
         {!isCompleted && (
-          <div className={`footer-container ${footerClassName}`}>
-            <div className={`footer-nav ${currentStep !== 1 ? 'spread' : 'end'}`}>
-              {currentStep !== 1 && (
+            <div className={`footer-container ${footerClassName}`}>
+              <div className={`footer-nav ${currentStep !== 1 ? 'spread' : 'end'}`}>
+                {currentStep !== 1 && (
+                    <button
+                        onClick={handleBack}
+                        className={`back-button ${currentStep === 1 ? 'inactive' : ''}`}
+                        {...backButtonProps}
+                    >
+                      {backButtonText}
+                    </button>
+                )}
                 <button
-                  onClick={handleBack}
-                  className={`back-button ${currentStep === 1 ? 'inactive' : ''}`}
-                  {...backButtonProps}
+                    onClick={isLastStep ? handleComplete : handleNext}
+                    className={`next-button ${!isCurrentStepValid() ? 'disabled' : ''}`}
+                    disabled={!isCurrentStepValid()}
+                    {...nextButtonProps}
                 >
-                  {backButtonText}
+                  {isLastStep ? 'Complete' : nextButtonText}
                 </button>
-              )}
-              <button
-                onClick={isLastStep ? handleComplete : handleNext}
-                className={`next-button ${!isCurrentStepValid() ? 'disabled' : ''}`}
-                disabled={!isCurrentStepValid()}
-                {...nextButtonProps}
-              >
-                {isLastStep ? 'Complete' : nextButtonText}
-              </button>
+              </div>
             </div>
-          </div>
         )}
       </div>
-    </div>
   );
 }
 
-// STEP CONTENT WRAPPER COMPONENT - DIESER FEHLTE
+// STEP CONTENT WRAPPER COMPONENT
 function StepContentWrapper({ isCompleted, currentStep, direction, children, className }) {
   const [parentHeight, setParentHeight] = useState(0);
 

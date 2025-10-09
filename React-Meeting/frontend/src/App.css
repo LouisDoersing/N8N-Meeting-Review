@@ -1,18 +1,33 @@
+/* während Animation Stepper entlasten */
+.stepper-animating {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+
+
 /* Vollbreites Layout erlauben */
 html, body, #root {
-  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000;   /* wirklich global schwarz */
+  color: #fff;        /* Standard-Text hell */
 }
+
 
 #root {
   max-width: none;       /* entfernt die enge Spalte */
   width: 100%;
   margin: 0;             /* nicht auto-zentrieren */
-  padding: 0;            /* globales Padding raus, falls gesetzt */
+  padding: 0;
+/* globales Padding raus, falls gesetzt */
 }
 
 body {
   margin: 0;             /* Browser-Default-Spacing entfernen */
-  background: #1f1f1f;   /* dein dunkler Hintergrund */
+  background: #000000;   /* dein dunkler Hintergrund */
 }
 
 
@@ -51,3 +66,105 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+.h1-center {
+  display: block;
+  width: 480px;
+  margin-left: 350px;   /* schiebt nach rechts */
+}
+
+.h2-center {
+  display: block;
+  width: 480px;
+  margin-left: 250px;   /* schiebt nach rechts */
+}
+
+/* Der H1-Container */
+.h1-style {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 1.25rem auto;
+  padding: 0;
+}
+
+/* Die eigentliche Textzeile (am BlurText-Root anwenden) */
+.h1-text {
+  font-family: 'Inter', 'Poppins', 'Helvetica Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0;
+  display: inline-flex;
+  gap: .25ch;
+
+  /* Verbesserter Gradient-Text */
+  background: linear-gradient(90deg, #fff 0%, #b19eef 50%, #5227ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* Besseres Text-Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+
+  /* Performance Optimierung */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+.h1-text {
+  color: #fff; /* Fallback */
+}
+
+.h1-text span {
+  background: linear-gradient(90deg, #fff 0%, #b19eef 50%, #5227ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dezente Unterlinie unter dem gesamten H1 */
+.h1-style::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  width: min(60%, 680px);
+  height: 3px;
+  background: linear-gradient(90deg, #5227ff, #b19eef);
+  border-radius: 9999px;
+  opacity: 0.85;
+}
+
+/* Optionaler Glow */
+.h1-style.glow .h1-text {
+  text-shadow: 0 0 16px rgba(82, 39, 255, 0.35);
+}
+
+
+.body { background: transparent !important; }   /* nicht grau */
+.info-section { background: transparent; }      /* oder explizit #000, wenn gewünscht */
+
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff 0%, #b19eef 50%, #5227ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center; /* optional, wenn du es mittig möchtest */
+}
+.section-title.glow {
+  text-shadow: 0 0 16px rgba(82, 39, 255, 0.35);
+}
+.box-2 {
+  margin-top: 2rem; /* z. B. 32px Abstand nach oben */
+}
+
+
+

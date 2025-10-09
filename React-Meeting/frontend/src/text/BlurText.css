@@ -1,0 +1,13 @@
+
+
+
+.blur-text {
+  width: 200px;          /* feste Breite */
+  margin-left: 1000px;    /* verschiebt das Element nach rechts */
+}
+
+.blur-text-shift {
+  display: block;
+  width: 480px;
+  margin-left: 350px;   /* schiebt nach rechts */
+}
