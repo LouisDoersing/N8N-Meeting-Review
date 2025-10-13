@@ -95,25 +95,25 @@ body {
   font-weight: 800;
   letter-spacing: -1px;
   margin: 0;
-  display: inline-flex;
+  
+  display: flex;
+  justify-content: center;
   gap: .25ch;
 
-  /* Verbesserter Gradient-Text */
-  background: linear-gradient(90deg, #fff 0%, #b19eef 50%, #5227ff 100%);
+  background: linear-gradient(90deg, #fff 0%, #9982da 50%, #4214fd 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 
-  /* Besseres Text-Rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;
 
-  /* Performance Optimierung */
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+
 .h1-text {
   color: #fff; /* Fallback */
 }
