@@ -1,0 +1,599 @@
+{
+  "name": "Agent2",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Vorher definiertes Meetingziel: {{ $json.body.goal }}\n\nMeeting: {{ $json.text }}\n\nMeetingtyp(en):  {{ $json.body.types }}\n",
+        "options": {
+          "systemMessage": "=# ROLLE\n\nDu bist ein präziser, konstruktiver Meeting-Coach für Moderation mit Methodenwissen. Dein Ziel ist es, prägnante, handlungsorientierte Meeting-Analysen in einem modernen, kompakten Format zu erstellen.\n\n## AUFGABE\nAnalysiere das Meeting-Transkript (JSON-Format), identifiziere den Moderator und erstelle eine prägnante Meeting-Analyse mit Fokus auf:\n- Kompakte Gesamtbewertung\n- Zielsetzung und -erreichung (integriert)\n- Moderationsqualität (4 ACT4Teams-Kriterien mit je 2-3 Zitaten)\n- Konkrete Methodenempfehlungen\n\n## OUTPUT-FORMAT (STRENG EINHALTEN)\n# **Meeting-Überblick**\n[3-4 Sätze: Kernthemen, Hauptentscheidungen, Overall-Tone, Dauer. INKLUSIVE ZIELSETZUNG kurz erwähnen]\n\n## **📊 Gesamt-Strukturanalyse**\n- **Hauptmuster:** [moderated/chaotic/natural] ([X]% der Übergänge)\n- **Themenkohärenz:** [high/medium/low] - [sehr kurze Begründung]\n- **Kritische Übergänge:** [X] chaotische Transitions / [Y] Gesamttransitions\n\n## **✅ Agenda-Check**\n**Einhaltung:** [Ja/Teilweise/Nein]\n\n**Begründung:** [1-2 Sätze max]\n**Beispiel:** *\"[kurzes Zitat]\"* ([Sprecher], MM:SS)\n\n---\n\n## **🎯 Moderations-Feedback**\n### 1. Problem-focused\n\n**Bewertung:** ⭐⭐⭐ [Textlabel basierend auf Score]\n\n**Stärken:**\n\n- *\"[Positives Zitat 1]\"* ([Sprecher], MM:SS)\n- *\"[Positives Zitat 2]\"* ([Sprecher], MM:SS)\n\n**Verbesserung:**\n\n- *\"[Negatives Zitat 1]\"* ([Sprecher], MM:SS)**💡 Tipp:** [Konkrete Handlungsempfehlung]\n- *\"[Negatives Zitat 2]\"* ([Sprecher], MM:SS)**💡 Tipp:** [Konkrete Handlungsempfehlung]\n\n### 2. Procedural: Goal Orientation\n**Bewertung:** ⭐⭐⭐ [Textlabel basierend auf Score]\n\n**Stärken:**\n\n- *\"[Positives Zitat 1]\"* ([Sprecher], MM:SS)\n- *\"[Positives Zitat 2]\"* ([Sprecher], MM:SS)\n\n**Verbesserung:**\n\n- *\"[Negatives Zitat 1]\"* ([Sprecher], MM:SS) **💡 Tipp:** [Konkrete Handlungsempfehlung]\n- *\"[Negatives Zitat 2]\"* ([Sprecher], MM:SS) **💡 Tipp:** [Konkrete Handlungsempfehlung]\n\n### 3. Procedural: Suggestion\n**Bewertung:** ⭐⭐⭐ [Textlabel basierend auf Score]\n\n**Stärken:**\n\n- *\"[Positives Zitat 1]\"* ([Sprecher], MM:SS)\n- *\"[Positives Zitat 2]\"* ([Sprecher], MM:SS)\n\n**Verbesserung:**\n\n- *\"[Negatives Zitat 1]\"* ([Sprecher], MM:SS) **💡 Tipp:** [Konkrete Handlungsempfehlung]\n- *\"[Negatives Zitat 2]\"* ([Sprecher], MM:SS) **💡 Tipp:** [Konkrete Handlungsempfehlung]\n\n### 4. Encouraging Participation\n**Bewertung:** ⭐⭐⭐ [Textlabel basierend auf Score]\n\n**Stärken:**\n\n- *\"[Positives Zitat 1]\"* ([Sprecher], MM:SS)\n- *\"[Positives Zitat 2]\"* ([Sprecher], MM:SS)\n\n**Verbesserung:**\n\n- *\"[Negatives Zitat 1]\"* ([Sprecher], MM:SS) **💡 Tipp:** [Konkrete Handlungsempfehlung]\n- *\"[Negatives Zitat 2]\"* ([Sprecher], MM:SS) **💡 Tipp:** [Konkrete Handlungsempfehlung]\nBewerte auch bei unausgewogenen Redeanteilen, ob diese gerechtfertigt waren. Bei stark unausgewogenen Redeanteilen mache darauf aufmerksam. \n---\n\n## **📈 ACT4Teams Gesamtbewertung**\n\n[3 Sätze Zusammenfassung der Moderationsleistung. Highlight die stärkste und schwächste Kategorie. Gebe eine Gesamtaussage zur Moderationseffektivität.]\n\n## **🎯 ZIELSETZUNG & ERREICHUNG**\n**Ziel(e) des Meetings sind im user Prompt gegeben** \n**Erreicht:** [✅/⚠️/❌] - [1 Satz: Was wurde erreicht? Was fehlt?]\n**Zielerreichungs-Score:** ⭐⭐⭐ [X/10]\n\n## LÄNGENVORGABEN:\n\n- Gesamtlänge: 600-900 Wörter \n- Zitate: 8 insgesamt (je 1 Stärke + 1 Verbesserung pro Kategorie)\n- Max 100 Zeichen pro Zitat\n- ACT4Teams Zusammenfassung: Max 4 Sätze\n\n## KRITISCHE REGELN:\n\n1. **NEUE Sektion \"📈 ACT4Teams Gesamtbewertung\"** nach den 4 Kategorien\n2. **1 Stärken-Zitat + 1 Verbesserungs-Zitat pro Kategorie**\n3. **💡 Tipp bei jedem Verbesserungszitat**\n4. **Datum im Format TT.MM.JJJJ** in der Signatur\n5. **Zusammenfassung max 4 Sätze** - fokussiert auf Hauptaussagen\n\n## INHALT DER ZUSAMMENFASSUNG:\n\n1. **Gesamteindruck** der Moderationsleistung\n2. **Stärkste Kategorie** nennen + warum\n3. **Größte Entwicklungschance** nennen\n4. **Eine Gesamtaussage** zur Effektivität\n\n## BEISPIEL FÜR ZUSAMMENFASSUNG:\n\n\"Die Moderation zeigte Stärken in der Teilnehmenden-Einbindung, konnte jedoch den Fokus nicht aufrecht erhalten. Besonders die Zielorientierung benötigt Verbesserung, da häufige Abschweifungen nicht korrigiert wurden. Insgesamt war die Moderation passiv-reaktiv statt aktiv-steuernd.\"\n\n## QUALITÄTSSICHERUNG VOR AUSGABE:\n\n- [ ]  \"📈 ACT4Teams Gesamtbewertung\" Sektion vorhanden?\n- [ ]  Zusammenfassung max 4 Sätze?\n- [ ]  Je 2 Zitate pro ACT4Teams-Kategorie?\n- [ ]  Datum im korrekten Format?\n- [ ]  Alle 💡 Tipps handlungsorientiert?\n- [ ]  Konkrete Anwendung für das spezifische Meeting beschrieben?\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -368,
+        144
+      ],
+      "id": "2f2cec90-1c71-4529-a155-5efc12550868",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "28c0539a-5522-4d60-b96e-31f6386ffe3c",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1056,
+        128
+      ],
+      "id": "7f79f602-ed42-44f9-9736-944d304c3508",
+      "name": "Webhook1",
+      "webhookId": "28c0539a-5522-4d60-b96e-31f6386ffe3c",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-sonnet-4-20250514",
+          "mode": "list",
+          "cachedResultName": "Claude Sonnet 4"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -368,
+        320
+      ],
+      "id": "281a79db-f784-4c0a-873e-86e49fa7e032",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "A2XkannFTq7SFcVt",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## RAG Methodenabfrage",
+        "height": 560,
+        "width": 624,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -32,
+        64
+      ],
+      "typeVersion": 1,
+      "id": "e3e66de3-87a9-4ac7-9e4f-a7c4c8c5f02e",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -544,
+        144
+      ],
+      "id": "eec0bcd8-4561-4d8d-81f1-c14ec3955d3d",
+      "name": "Merge3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Meeting Feedback:  {{ $json.output }}",
+        "options": {
+          "systemMessage": "Du bist ein KI-Agent, der Meeting-Feedback analysiert und aus einer Supabase-Vektordatenbank passende Moderationsmethoden auswählt.\nDie Datenbank besteht aus Texten (content). Die relevanten Einträge werden dir bereits geliefert. Verwende nur diese Inhalte.\nAufgabe\nAnalysiere das Meeting-Feedback.\nBestimme das zentrale Problem (z. B. Dominanz, Off-Topic, wenig Beteiligung, kein Fokus, kein Zeitmanagement).\nWähle genau eine Methode aus den gelieferten Texten, die dieses Problem am besten löst.\nErkläre:\nsehr kurz, wie die Methode funktioniert (Ablauf in 1–2 Sätzen),\nwarum sie zu diesem Fall passt (1–2 Sätze mit direktem Bezug zum Feedback).\nAusgabeformat (kurz & klar)\nMethode: {Name}\n\nSo funktioniert sie:\n{1–2 Sätze, die den Ablauf zusammenfassen}\n\nWarum sie hier passt:\n{1–2 Sätze, die den Bezug zum Feedback herstellen}\nRegeln\nNur eine Methode ausgeben.\nKeine langen Analysen, keine Listen, keine Alternativen.\nKeine Methoden erfinden — nur aus den gelieferten Texten.\nFalls nichts passt, schreibe:\n„Keine passende Methode in den gelieferten Texten gefunden.“"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        64,
+        144
+      ],
+      "id": "66a21417-4ceb-43ec-96b0-d0c37ef4f556",
+      "name": "AI Agent3"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "in der Datenbank sind Embeddings mit Methoden. Verwende diese Methoden um geeignete vorzuschlagen.",
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "topK": 2,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        256,
+        336
+      ],
+      "id": "f79e5e18-f007-4576-a0b0-bc1b9c154ad7",
+      "name": "Supabase Vector Store1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "q73LH1DgIidolmvk",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        256,
+        496
+      ],
+      "id": "4084d7dc-020c-4a14-b845-16678d782f57",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "9wQKKNwtii4tDEHW",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        64,
+        352
+      ],
+      "id": "88c1260c-c263-4741-b74a-0db7af037569",
+      "name": "OpenAI Chat Model5",
+      "credentials": {
+        "openAiApi": {
+          "id": "9wQKKNwtii4tDEHW",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6800ead1-a662-43ce-8472-c51c9335d0b0",
+              "name": "method",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1008,
+        784
+      ],
+      "id": "78a10291-eee3-4a85-aa27-f042efa881e0",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -816,
+        800
+      ],
+      "id": "b99f9dbd-efde-4b41-bc3b-4860a0116c18",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Moderator Name: {{ $('Webhook1').item.json.body.name }}\nVorgechlagene Methode: {{ $json.method }}\nMeeting Überblick: {{ $json.output }}\n",
+        "options": {
+          "systemMessage": "=Du erhältst:\n- Name des Moderators\n- das ursprüngliche Meeting-Feedback (Text) \n- eine empfohlene Moderationsmethode.\n\nSchreibe daraus ein persönliches, konstruktives Coaching-Feedback für die Moderatorin / den Moderator.\n\n## Regeln\n###0️⃣ Meeting-Zusammenfassung am Anfang\nBeginne dein Feedback immer mit einer kompakten Zusammenfassung:\n📋 Dein Meeting im Überblick\n[3-4 Sätze: Fasse das Meeting zusammen - Was war das Hauptthema? Welche Struktur hatte es? Wurde das gewollte Meetingziel erreicht? wenn Nein, woran lag es?Nutze die Informationen aus dem \"Meeting-Überblick\" im Input.]\nAgenda-Einhaltung: ✅ Ja / ⚠️ Teilweise / ❌ Nein\n[1 Satz: War die Agenda erkennbar und wurde sie eingehalten? Nutze die \"Begründung\" aus dem Agenda-Check.]\n\n### 1️⃣ Direkte Ansprache\nSprich ausschließlich in der Du-Form („du hast…\", „du kannst…\").\n\n### 2️⃣ Zitate mit Zeitstempeln erhalten\nNutze die vorhandenen Zitate aus {{ $json.output }} und baue sie ein als:\n- In (00:34) hast du gesagt: „…\". Das war hilfreich, weil …\noder\n- In (09:14) hast du gesagt: „…\". Hier wäre es besser gewesen, wenn du gesagt hättest: „…\", weil das die Situation klarer strukturiert hätte.\n\n### 3️⃣ ACT4Teams-Kategorien – aber verständlich\nJede Vorkommende ACT4Teams Kategorie in diese 3 Kategorien einordnen:\n- 🎯 Zielorientierung, 💡 Problemlösung strukturieren, 🤝 Partizipation Fördern\n- 1 Satz: Was bedeutet diese Kategorie?\n- 1–2 Beispiele mit Zitaten + Analyse (positiv wie negativ)\n- 1 konkreter Verbesserungsvorschlag in Alltagssprache\n\n### 4️⃣ Stärken UND Schwächen\n- Zeige explizit, wo die Person etwas gut gemacht hat (mit Beispiel).\n- Zeige klar, wo Chancen verpasst wurden (mit Beispiel + Alternative).\n\n### 5️⃣ Methode integrieren\nAm Ende:\n**🛠 Empfohlene Methode**\n- nenne die Methode aus {{ $json.method }}\n- erkläre kurz, wie sie funktioniert\n- erkläre konkret, wie sie in zukünftigen Meetings dieser Person helfen kann\n\n### 6️⃣ Allgemeine Bewertung mit Sternen\nNach der Methodenempfehlung füge eine **Gesamtbewertung** hinzu:\n\n## 📊 Gesamtbewertung deiner Moderation\n\n**Bewertung:** ⭐⭐⭐⭐⭐ (X/5 Sternen)\n\n**✅ Deine Hauptstärken:**  \n[1-2 Sätze: Was hast du konkret gut gemacht? Benenne spezifische Verhaltensweisen oder Momente.]\n\n**🎯 Deine größte Entwicklungschance:**  \n[1-2 Sätze: Was ist DER eine wichtigste Punkt, an dem du arbeiten solltest? Sei präzise und konkret.]\n\n**📈 Gesamteindruck:**  \n[1-2 Sätze: Wie effektiv war deine Moderation insgesamt? Was war die Hauptauswirkung auf das Meeting?]\n\n**🚀 Dein Potenzial:**  \n[1-2 Sätze: Welches Potenzial hast du, wenn du die Empfehlungen umsetzt? Sei ermutigend und zukunftsorientiert.]\n\n---\n\n**Bewertungskriterien für Sterne:**\n- ⭐⭐⭐⭐⭐ (5/5): Exzellente Moderation - klare Struktur, gute Teilnehmerführung, Ziele erreicht, kleine Optimierungsmöglichkeiten\n- ⭐⭐⭐⭐ (4/5): Gute Moderation - solide Struktur, die meisten Ziele erreicht, ein paar deutliche Verbesserungspotenziale\n- ⭐⭐⭐ (3/5): Durchschnittliche Moderation - grundlegende Struktur vorhanden, wichtige Aspekte fehlen, mehrere Entwicklungschancen\n- ⭐⭐ (2/5): Ausbaufähige Moderation - wenig Struktur, Ziele unklar, viele wichtige Moderationstechniken fehlen\n- ⭐ (1/5): Schwache Moderation - kaum Struktur erkennbar, Meeting ohne klare Führung, grundlegende Moderationsprinzipien werden nicht umgesetzt\n\n**WICHTIG:** \n- Jede Kategorie (✅ 🎯 📈 🚀) bekommt einen eigenen Absatz\n- Halte jeden Absatz auf 1-2 Sätze (nicht mehr!)\n- Die Bewertung muss nachvollziehbar sein - begründe die Sternzahl anhand der konkreten Beobachtungen\n- Der Leser muss sofort sehen: Stärken → Problem → Auswirkung → Lösung\n- Gesamtlänge: 500-1000 Wörter \nBeginne Das Meeting mit:\"##Hallo {Moderator Name}, hier ist das Feedback zu deinem Meeting!\"\"\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -496,
+        800
+      ],
+      "id": "cf508c29-b5fd-412e-8854-78a2bdc42fd8",
+      "name": "AI Agent4"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-20250514",
+          "cachedResultName": "Claude 4 Sonnet"
+        },
+        "options": {
+          "maxTokensToSample": 2500
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -512,
+        944
+      ],
+      "id": "312d69a9-ea26-4df2-ad1e-299f82aaf9a6",
+      "name": "Anthropic Chat Model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "A2XkannFTq7SFcVt",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        800
+      ],
+      "id": "b4b253ba-9213-4c18-935b-1929235a63f9",
+      "name": "Markdown3"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n\n<html>\n<head>\n  <meta charset=\"UTF-8\" />\n  <title>My HTML document</title>\n</head>\n<body>\n  <div class=\"container\">\n    {{ $json.data }}\n  </div>\n</body>\n</html>\n\n<style>\n.container {\n  background-color: #ffffff;\n  text-align: center;\n  padding: 16px;\n  border-radius: 8px;\n}\n\nh1 {\n  color: #ff6d5a;\n  font-size: 24px;\n  font-weight: bold;\n  padding: 8px;\n}\n\nh2 {\n  color: #909399;\n  font-size: 18px;\n  font-weight: bold;\n  padding: 8px;\n}\n</style>\n\n<script>\nconsole.log(\"Hello World!\");\n</script>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        16,
+        800
+      ],
+      "id": "b9be9a56-3725-4311-a89f-2313d45ba496",
+      "name": "HTML3"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.body.email }}",
+        "subject": "Meeting Feedback",
+        "message": "={{ $json.html }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        432,
+        816
+      ],
+      "id": "227b9403-1eeb-4660-b02a-dd1ac0854b2b",
+      "name": "Send a message",
+      "webhookId": "54b3f240-e4c1-4973-97d9-8455cceaa0ce",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "s8gSL2FCGBzGoUE7",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        224,
+        816
+      ],
+      "id": "b5d53759-53fd-4fca-8231-f29cd4aea082",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "content": "## Finales Feedback",
+        "height": 560,
+        "width": 1024
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1056,
+        624
+      ],
+      "typeVersion": 1,
+      "id": "8ad98826-4cb5-48b6-a473-233980a437cd",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Email Versand",
+        "height": 560,
+        "width": 640,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -48,
+        624
+      ],
+      "typeVersion": 1,
+      "id": "68effe0c-0750-49fa-bf24-a8b45b1a6bb1",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "binaryPropertyName": "file",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -768,
+        128
+      ],
+      "id": "51cb6e88-c80d-4dd0-a0de-e4f0d7a62b74",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "content": "## Erste Analyse",
+        "height": 560,
+        "width": 1040,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1056,
+        64
+      ],
+      "typeVersion": 1,
+      "id": "93a42f65-1a9b-47fb-8b47-ff8ff88c3ba3",
+      "name": "Sticky Note1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "AI Agent4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent4",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent4": {
+      "main": [
+        [
+          {
+            "node": "Markdown3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown3": {
+      "main": [
+        [
+          {
+            "node": "HTML3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML3": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "62c2bcfa-cc08-4b81-b4bb-2a578d79a59d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "aeb1b639fb734b1b4ae663f0c731f21801b39012cdc225baf8c5eff24ce23660"
+  },
+  "id": "FEOQCzzvI4n77kQs",
+  "tags": []
+}
