@@ -13,10 +13,9 @@ export default function InfoSection() {
             className="info-text"
         >
             <p>
-                Lade einfach die Audiodatei deines Meetings hoch – der Rest läuft automatisch.
-                Zunächst wird die Tonspur präzise transkribiert und nach einzelnen Sprecher:innen segmentiert.
+                Lade einfach das Transkript deines Meetings hoch und mache in paar Angaben zu Dir und deinem Meeting – der Rest läuft automatisch.
                 Anschließend analysiert unsere KI den Gesprächsverlauf, erkennt Strukturen, Dynamiken und inhaltliche Schwerpunkte und erstellt daraus ein
-            gezieltes Feedback speziell für Moderator:innen.
+            gezieltes Feedback speziell für Dich.
         </p>
         <p>
           Das Besondere: Unser System wurde in enger Zusammenarbeit mit erfahrenen Meeting-Expert:innen entwickelt. Dadurch liefert die KI nicht nur oberflächliche Statistiken,

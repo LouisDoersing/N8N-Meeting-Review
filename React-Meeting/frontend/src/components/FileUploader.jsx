@@ -20,7 +20,7 @@ export default function FileUploader({ onFileSelect }) {
                     onChange={handleFileChange}
                     className="hidden"
                     id="file-input"
-                    accept="audio/*" // Nur Audio-Dateien erlauben
+                    accept=".pdf" // Nur docx-Dateien erlauben
                 />
                 <label
                     htmlFor="file-input"

@@ -216,9 +216,10 @@ function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }
       <motion.div
         variants={{
           inactive: { scale: 1, backgroundColor: '#222', color: '#a3a3a3' },
-          active: { scale: 1, backgroundColor: '#5227FF', color: '#5227FF' },
-          complete: { scale: 1, backgroundColor: '#5227FF', color: '#3b82f6' }
+          active: { scale: 1, backgroundColor: 'rgba(34,197,94,0.68)', color: 'rgba(34,197,94,0.74)' },
+          complete: { scale: 1, backgroundColor: 'rgba(34,197,94,0.64)', color: 'rgba(34,197,94,0.78)' }
         }}
+
         transition={{ duration: 0.3 }}
         className="step-indicator-inner"
       >

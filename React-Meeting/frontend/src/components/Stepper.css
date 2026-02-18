@@ -31,17 +31,17 @@
   background:
     radial-gradient(
       ellipse at 20% 20%,
-      rgba(120, 119, 198, 0.15) 0%,
+      rgba(77, 255, 135, 0.06) 0%,
       transparent 50%
     ),
     radial-gradient(
       ellipse at 80% 80%,
-      rgba(99, 102, 241, 0.1) 0%,
+      rgba(104, 241, 99, 0.1) 0%,
       transparent 50%
     ),
     radial-gradient(
       ellipse at 40% 60%,
-      rgba(168, 85, 247, 0.08) 0%,
+      rgba(85, 247, 174, 0.04) 0%,
       transparent 50%
     ),
     linear-gradient(
@@ -51,13 +51,13 @@
     );
 
   /* Korrigierte Border ohne border-image */
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid rgb(0, 108, 34);
 
   /* Weichere Schatten */
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.3),
-    0 2px 8px rgba(99, 102, 241, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 2px 8px rgb(172, 184, 166),
+    inset 0 1px 0 rgb(0, 255, 75);
 
   backdrop-filter: blur(20px);
 }
@@ -73,7 +73,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01),
     transparent
   );
   animation: shimmer 8s infinite;
@@ -99,7 +99,7 @@
   right: 1px;
   bottom: 1px;
   border-radius: 1.45rem; /* Etwas kleiner als der Container */
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 75, 0.57);
   pointer-events: none;
   z-index: 0;
 }
@@ -129,7 +129,7 @@
   padding: 0.75rem 1rem;
   border-radius: 0.75rem;
   border: none;
-  background: rgba(255, 255, 255, 0.05) !important; /* Heller Hintergrund */
+  background: rgba(255, 255, 255, 0.24) !important; /* Heller Hintergrund */
   color: white;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -138,13 +138,13 @@
 
 .step-content-default input:focus {
   outline: none;
-  border-color: #667eea;
-  background: rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #f1f1f1;
+  background: rgba(110, 110, 110, 0.57) !important;
+  box-shadow: 0 0 0 3px rgba(221, 221, 221, 0.05);
 }
 
 .step-content-default input::placeholder {
-  color: #9ca3af;
+  color: #ffffff;
 }
 
 
@@ -207,21 +207,21 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.75rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6fea66 0%, #4b9fa2 100%);
   color: #fff;
   font-weight: 600;
   padding: 0.75rem 2rem;
   cursor: pointer;
   border: none;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(102, 234, 104, 0.24);
   position: relative;
   overflow: hidden;
 }
 
 .next-button:hover {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: linear-gradient(135deg, #4ba252 0%, #ffffff 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 25px rgba(102, 214, 234, 0.4);
 }
 
 .next-button:active {
@@ -263,14 +263,14 @@
   justify-content: center;
   border-radius: 9999px;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #a3a3a3;
   transition: all 0.3s ease;
 }
 
 .step-indicator.active .step-indicator-inner {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #898c89 0%, #6a6a6a 100%);
   border-color: rgba(255, 255, 255, 0.3);
   color: white;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
@@ -304,7 +304,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(90deg, #fbfbfb 0%, #00ff4b 100%);
   transition: all 0.5s ease;
 }
 
