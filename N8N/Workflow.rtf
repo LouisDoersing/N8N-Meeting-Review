@@ -1,0 +1,696 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \{\
+  "nodes": [\
+    \{\
+      "parameters": \{\
+        "promptType": "define",\
+        "text": "=Vorher definiertes Meetingziel: \{\{ $json.body.meetingGoalText \}\}\\n\\nMeeting: \{\{ $json.dialog \}\}\\n\\nMeetingtyp(en): \{\{ $json.body.meetingTypes \}\}\\n",\
+        "options": \{\
+          "systemMessage": "=# ROLLE\\n\\nDu bist ein pr\'e4ziser, konstruktiver Meeting-Coach f\'fcr Moderation mit Methodenwissen. Dein Ziel ist es, pr\'e4gnante, handlungsorientierte Meeting-Analysen in einem modernen, kompakten Format zu erstellen.\\n\\n## AUFGABE\\nAnalysiere das Meeting-Transkript (JSON-Format), identifiziere den Moderator und erstelle eine pr\'e4gnante Meeting-Analyse mit Fokus auf:\\n- Kompakte Gesamtbewertung\\n- Zielsetzung und -erreichung (integriert)\\n- Moderationsqualit\'e4t (4 ACT4Teams-Kriterien mit je 2-3 Zitaten)\\n- Konkrete Methodenempfehlungen\\n\\n## OUTPUT-FORMAT (STRENG EINHALTEN)\\n# **Meeting-\'dcberblick**\\n[3-4 S\'e4tze: Kernthemen, Hauptentscheidungen, Overall-Tone, Dauer. INKLUSIVE ZIELSETZUNG kurz erw\'e4hnen]\\n\\n## **\uc0\u55357 \u56522  Gesamt-Strukturanalyse**\\n- **Hauptmuster:** [moderated/chaotic/natural] ([X]% der \'dcberg\'e4nge)\\n- **Themenkoh\'e4renz:** [high/medium/low] - [sehr kurze Begr\'fcndung]\\n- **Kritische \'dcberg\'e4nge:** [X] chaotische Transitions / [Y] Gesamttransitions\\n\\n## **\u9989  Agenda-Check**\\n**Einhaltung:** [Ja/Teilweise/Nein]\\n\\n**Begr\'fcndung:** [1-2 S\'e4tze max]\\n**Beispiel:** *\\"[kurzes Zitat]\\"* ([Sprecher], MM:SS)\\n\\n---\\n\\n## **\u55356 \u57263  Moderations-Feedback**\\n### 1. Problem-focused\\n\\n**Bewertung:** \u11088 \u11088 \u11088  [Textlabel basierend auf Score]\\n\\n**St\'e4rken:**\\n\\n- *\\"[Positives Zitat 1]\\"* ([Sprecher], MM:SS)\\n- *\\"[Positives Zitat 2]\\"* ([Sprecher], MM:SS)\\n\\n**Verbesserung:**\\n\\n- *\\"[Negatives Zitat 1]\\"* ([Sprecher], MM:SS)**\u55357 \u56481  Tipp:** [Konkrete Handlungsempfehlung]\\n- *\\"[Negatives Zitat 2]\\"* ([Sprecher], MM:SS)**\u55357 \u56481  Tipp:** [Konkrete Handlungsempfehlung]\\n\\n### 2. Procedural: Goal Orientation\\n**Bewertung:** \u11088 \u11088 \u11088  [Textlabel basierend auf Score]\\n\\n**St\'e4rken:**\\n\\n- *\\"[Positives Zitat 1]\\"* ([Sprecher], MM:SS)\\n- *\\"[Positives Zitat 2]\\"* ([Sprecher], MM:SS)\\n\\n**Verbesserung:**\\n\\n- *\\"[Negatives Zitat 1]\\"* ([Sprecher], MM:SS) **\u55357 \u56481  Tipp:** [Konkrete Handlungsempfehlung]\\n- *\\"[Negatives Zitat 2]\\"* ([Sprecher], MM:SS) **\u55357 \u56481  Tipp:** [Konkrete Handlungsempfehlung]\\n\\n### 3. Procedural: Suggestion\\n**Bewertung:** \u11088 \u11088 \u11088  [Textlabel basierend auf Score]\\n\\n**St\'e4rken:**\\n\\n- *\\"[Positives Zitat 1]\\"* ([Sprecher], MM:SS)\\n- *\\"[Positives Zitat 2]\\"* ([Sprecher], MM:SS)\\n\\n**Verbesserung:**\\n\\n- *\\"[Negatives Zitat 1]\\"* ([Sprecher], MM:SS) **\u55357 \u56481  Tipp:** [Konkrete Handlungsempfehlung]\\n- *\\"[Negatives Zitat 2]\\"* ([Sprecher], MM:SS) **\u55357 \u56481  Tipp:** [Konkrete Handlungsempfehlung]\\n\\n### 4. Encouraging Participation\\n**Bewertung:** \u11088 \u11088 \u11088  [Textlabel basierend auf Score]\\n\\n**St\'e4rken:**\\n\\n- *\\"[Positives Zitat 1]\\"* ([Sprecher], MM:SS)\\n- *\\"[Positives Zitat 2]\\"* ([Sprecher], MM:SS)\\n\\n**Verbesserung:**\\n\\n- *\\"[Negatives Zitat 1]\\"* ([Sprecher], MM:SS) **\u55357 \u56481  Tipp:** [Konkrete Handlungsempfehlung]\\n- *\\"[Negatives Zitat 2]\\"* ([Sprecher], MM:SS) **\u55357 \u56481  Tipp:** [Konkrete Handlungsempfehlung]\\nBewerte auch bei unausgewogenen Redeanteilen, ob diese gerechtfertigt waren. Bei stark unausgewogenen Redeanteilen mache darauf aufmerksam. \\n---\\n\\n## **\u55357 \u56520  ACT4Teams Gesamtbewertung**\\n\\n[3 S\'e4tze Zusammenfassung der Moderationsleistung. Highlight die st\'e4rkste und schw\'e4chste Kategorie. Gebe eine Gesamtaussage zur Moderationseffektivit\'e4t.]\\n\\n## **\u55356 \u57263  ZIELSETZUNG & ERREICHUNG**\\n**Ziel(e) des Meetings sind im user Prompt gegeben** \\n**Erreicht:** [\u9989 /\u9888 \u65039 /\u10060 ] - [1 Satz: Was wurde erreicht? Was fehlt?]\\n**Zielerreichungs-Score:** \u11088 \u11088 \u11088  [X/10]\\n\\n## L\'c4NGENVORGABEN:\\n\\n- Gesamtl\'e4nge: 600-900 W\'f6rter \\n- Zitate: 8 insgesamt (je 1 St\'e4rke + 1 Verbesserung pro Kategorie)\\n- Max 100 Zeichen pro Zitat\\n- ACT4Teams Zusammenfassung: Max 4 S\'e4tze\\n\\n## KRITISCHE REGELN:\\n\\n1. **NEUE Sektion \\"\u55357 \u56520  ACT4Teams Gesamtbewertung\\"** nach den 4 Kategorien\\n2. **1 St\'e4rken-Zitat + 1 Verbesserungs-Zitat pro Kategorie**\\n3. **\u55357 \u56481  Tipp bei jedem Verbesserungszitat**\\n4. **Datum im Format TT.MM.JJJJ** in der Signatur\\n5. **Zusammenfassung max 4 S\'e4tze** - fokussiert auf Hauptaussagen\\n\\n## INHALT DER ZUSAMMENFASSUNG:\\n\\n1. **Gesamteindruck** der Moderationsleistung\\n2. **St\'e4rkste Kategorie** nennen + warum\\n3. **Gr\'f6\'dfte Entwicklungschance** nennen\\n4. **Eine Gesamtaussage** zur Effektivit\'e4t\\n\\n## BEISPIEL F\'dcR ZUSAMMENFASSUNG:\\n\\n\\"Die Moderation zeigte St\'e4rken in der Teilnehmenden-Einbindung, konnte jedoch den Fokus nicht aufrecht erhalten. Besonders die Zielorientierung ben\'f6tigt Verbesserung, da h\'e4ufige Abschweifungen nicht korrigiert wurden. Insgesamt war die Moderation passiv-reaktiv statt aktiv-steuernd.\\"\\n\\n## QUALIT\'c4TSSICHERUNG VOR AUSGABE:\\n\\n- [ ]  \\"\u55357 \u56520  ACT4Teams Gesamtbewertung\\" Sektion vorhanden?\\n- [ ]  Zusammenfassung max 4 S\'e4tze?\\n- [ ]  Je 2 Zitate pro ACT4Teams-Kategorie?\\n- [ ]  Datum im korrekten Format?\\n- [ ]  Alle \u55357 \u56481  Tipps handlungsorientiert?\\n- [ ]  Konkrete Anwendung f\'fcr das spezifische Meeting beschrieben?\\n"\
+        \}\
+      \},\
+      "type": "@n8n/n8n-nodes-langchain.agent",\
+      "typeVersion": 2.2,\
+      "position": [\
+        80,\
+        144\
+      ],\
+      "id": "2f2cec90-1c71-4529-a155-5efc12550868",\
+      "name": "AI Agent"\
+    \},\
+    \{\
+      "parameters": \{\
+        "httpMethod": "POST",\
+        "path": "28c0539a-5522-4d60-b96e-31f6386ffe3c",\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.webhook",\
+      "typeVersion": 2.1,\
+      "position": [\
+        -1056,\
+        128\
+      ],\
+      "id": "7f79f602-ed42-44f9-9736-944d304c3508",\
+      "name": "Webhook1",\
+      "webhookId": "28c0539a-5522-4d60-b96e-31f6386ffe3c",\
+      "alwaysOutputData": false\
+    \},\
+    \{\
+      "parameters": \{\
+        "model": \{\
+          "__rl": true,\
+          "value": "claude-sonnet-4-20250514",\
+          "mode": "list",\
+          "cachedResultName": "Claude Sonnet 4"\
+        \},\
+        "options": \{\}\
+      \},\
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",\
+      "typeVersion": 1.3,\
+      "position": [\
+        80,\
+        336\
+      ],\
+      "id": "281a79db-f784-4c0a-873e-86e49fa7e032",\
+      "name": "Anthropic Chat Model",\
+      "credentials": \{\
+        "anthropicApi": \{\
+          "id": "A2XkannFTq7SFcVt",\
+          "name": "Anthropic account"\
+        \}\
+      \}\
+    \},\
+    \{\
+      "parameters": \{\
+        "content": "## RAG Methodenabfrage",\
+        "height": 560,\
+        "width": 912,\
+        "color": 5\
+      \},\
+      "type": "n8n-nodes-base.stickyNote",\
+      "position": [\
+        672,\
+        64\
+      ],\
+      "typeVersion": 1,\
+      "id": "e3e66de3-87a9-4ac7-9e4f-a7c4c8c5f02e",\
+      "name": "Sticky Note2"\
+    \},\
+    \{\
+      "parameters": \{\
+        "mode": "combine",\
+        "combineBy": "combineAll",\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.merge",\
+      "typeVersion": 3.2,\
+      "position": [\
+        -112,\
+        144\
+      ],\
+      "id": "eec0bcd8-4561-4d8d-81f1-c14ec3955d3d",\
+      "name": "Merge3"\
+    \},\
+    \{\
+      "parameters": \{\
+        "promptType": "define",\
+        "text": "=Meeting Feedback:  \{\{ $json.output \}\}",\
+        "options": \{\
+          "systemMessage": "Du bist ein KI-Agent, der Meeting-Feedback analysiert und aus einer Supabase-Vektordatenbank passende Moderationsmethoden ausw\'e4hlt.\\nDie Datenbank besteht aus Texten (content). Die relevanten Eintr\'e4ge werden dir bereits geliefert. Verwende nur diese Inhalte.\\nAufgabe\\nAnalysiere das Meeting-Feedback.\\nBestimme das zentrale Problem (z. B. Dominanz, Off-Topic, wenig Beteiligung, kein Fokus, kein Zeitmanagement).\\nW\'e4hle genau eine Methode aus den gelieferten Texten, die dieses Problem am besten l\'f6st.\\nErkl\'e4re:\\nsehr kurz, wie die Methode funktioniert (Ablauf in 1\'962 S\'e4tzen),\\nwarum sie zu diesem Fall passt (1\'962 S\'e4tze mit direktem Bezug zum Feedback).\\nAusgabeformat (kurz & klar)\\nMethode: \{Name\}\\n\\nSo funktioniert sie:\\n\{1\'962 S\'e4tze, die den Ablauf zusammenfassen\}\\n\\nWarum sie hier passt:\\n\{1\'962 S\'e4tze, die den Bezug zum Feedback herstellen\}\\nRegeln\\nNur eine Methode ausgeben.\\nKeine langen Analysen, keine Listen, keine Alternativen.\\nKeine Methoden erfinden \'97 nur aus den gelieferten Texten.\\nFalls nichts passt, schreibe:\\n\'84Keine passende Methode in den gelieferten Texten gefunden.\'93"\
+        \}\
+      \},\
+      "type": "@n8n/n8n-nodes-langchain.agent",\
+      "typeVersion": 2.2,\
+      "position": [\
+        912,\
+        144\
+      ],\
+      "id": "66a21417-4ceb-43ec-96b0-d0c37ef4f556",\
+      "name": "AI Agent3"\
+    \},\
+    \{\
+      "parameters": \{\
+        "mode": "retrieve-as-tool",\
+        "toolDescription": "in der Datenbank sind Embeddings mit Methoden. Verwende diese Methoden um geeignete vorzuschlagen.",\
+        "tableName": \{\
+          "__rl": true,\
+          "value": "documents",\
+          "mode": "list",\
+          "cachedResultName": "documents"\
+        \},\
+        "topK": 2,\
+        "options": \{\}\
+      \},\
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",\
+      "typeVersion": 1.3,\
+      "position": [\
+        1024,\
+        352\
+      ],\
+      "id": "f79e5e18-f007-4576-a0b0-bc1b9c154ad7",\
+      "name": "Supabase Vector Store1",\
+      "credentials": \{\
+        "supabaseApi": \{\
+          "id": "q73LH1DgIidolmvk",\
+          "name": "Supabase account"\
+        \}\
+      \}\
+    \},\
+    \{\
+      "parameters": \{\
+        "options": \{\}\
+      \},\
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",\
+      "typeVersion": 1.2,\
+      "position": [\
+        1024,\
+        496\
+      ],\
+      "id": "4084d7dc-020c-4a14-b845-16678d782f57",\
+      "name": "Embeddings OpenAI",\
+      "credentials": \{\
+        "openAiApi": \{\
+          "id": "9wQKKNwtii4tDEHW",\
+          "name": "OpenAi account"\
+        \}\
+      \}\
+    \},\
+    \{\
+      "parameters": \{\
+        "model": \{\
+          "__rl": true,\
+          "mode": "list",\
+          "value": "gpt-4.1-mini"\
+        \},\
+        "options": \{\}\
+      \},\
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",\
+      "typeVersion": 1.2,\
+      "position": [\
+        912,\
+        352\
+      ],\
+      "id": "88c1260c-c263-4741-b74a-0db7af037569",\
+      "name": "OpenAI Chat Model5",\
+      "credentials": \{\
+        "openAiApi": \{\
+          "id": "9wQKKNwtii4tDEHW",\
+          "name": "OpenAi account"\
+        \}\
+      \}\
+    \},\
+    \{\
+      "parameters": \{\
+        "assignments": \{\
+          "assignments": [\
+            \{\
+              "id": "6800ead1-a662-43ce-8472-c51c9335d0b0",\
+              "name": "method",\
+              "value": "=\{\{ $json.output \}\}",\
+              "type": "string"\
+            \}\
+          ]\
+        \},\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.set",\
+      "typeVersion": 3.4,\
+      "position": [\
+        -992,\
+        640\
+      ],\
+      "id": "78a10291-eee3-4a85-aa27-f042efa881e0",\
+      "name": "Edit Fields3"\
+    \},\
+    \{\
+      "parameters": \{\
+        "mode": "combine",\
+        "combineBy": "combineAll",\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.merge",\
+      "typeVersion": 3.2,\
+      "position": [\
+        -752,\
+        656\
+      ],\
+      "id": "b99f9dbd-efde-4b41-bc3b-4860a0116c18",\
+      "name": "Merge"\
+    \},\
+    \{\
+      "parameters": \{\
+        "promptType": "define",\
+        "text": "=Vorgechlagene Methode: \{\{ $json.method \}\}\\nMeeting \'dcberblick: \{\{ $json.output \}\}\\n",\
+        "options": \{\
+          "systemMessage": "=Du erh\'e4ltst:\\n- das urspr\'fcngliche Meeting-Feedback (Text) \\n- eine empfohlene Moderationsmethode.\\n\\nSchreibe daraus ein pers\'f6nliches, konstruktives Coaching-Feedback f\'fcr die Moderatorin / den Moderator.\\n\\n## Regeln\\n###0\uc0\u65039 \u8419  Meeting-Zusammenfassung am Anfang\\nBeginne dein Feedback immer mit einer kompakten Zusammenfassung:\\n\u55357 \u56523  Dein Meeting im \'dcberblick\\n[3-4 S\'e4tze: Fasse das Meeting zusammen - Was war das Hauptthema? Welche Struktur hatte es? Wurde das gewollte Meetingziel erreicht? wenn Nein, woran lag es?Nutze die Informationen aus dem \\"Meeting-\'dcberblick\\" im Input.]\\nAgenda-Einhaltung: \u9989  Ja / \u9888 \u65039  Teilweise / \u10060  Nein\\n[1 Satz: War die Agenda erkennbar und wurde sie eingehalten? Nutze die \\"Begr\'fcndung\\" aus dem Agenda-Check.]\\n\\n### 1\u65039 \u8419  Direkte Ansprache\\nSprich ausschlie\'dflich in der Du-Form (\'84du hast\'85\\", \'84du kannst\'85\\").\\n\\n### 2\u65039 \u8419  Zitate mit Zeitstempeln erhalten\\nNutze die vorhandenen Zitate aus \{\{ $json.output \}\} und baue sie ein als:\\n- In (00:34) hast du gesagt: \'84\'85\\". Das war hilfreich, weil \'85\\noder\\n- In (09:14) hast du gesagt: \'84\'85\\". Hier w\'e4re es besser gewesen, wenn du gesagt h\'e4ttest: \'84\'85\\", weil das die Situation klarer strukturiert h\'e4tte.\\n\\n### 3\u65039 \u8419  ACT4Teams-Kategorien \'96 aber verst\'e4ndlich\\nJede Vorkommende ACT4Teams Kategorie in diese 3 Kategorien einordnen:\\n- \u55356 \u57263  Zielorientierung, \u55357 \u56481  Probleml\'f6sung strukturieren, \u55358 \u56605  Partizipation F\'f6rdern\\n- 1 Satz: Was bedeutet diese Kategorie?\\n- 1\'962 Beispiele mit Zitaten + Analyse (positiv wie negativ)\\n- 1 konkreter Verbesserungsvorschlag in Alltagssprache\\n\\n### 4\u65039 \u8419  St\'e4rken UND Schw\'e4chen\\n- Zeige explizit, wo die Person etwas gut gemacht hat (mit Beispiel).\\n- Zeige klar, wo Chancen verpasst wurden (mit Beispiel + Alternative).\\n\\n### 5\u65039 \u8419  Methode integrieren\\nAm Ende:\\n**\u55357 \u57056  Empfohlene Methode**\\n- nenne die Methode aus \{\{ $json.method \}\}\\n- erkl\'e4re kurz, wie sie funktioniert\\n- erkl\'e4re konkret, wie sie in zuk\'fcnftigen Meetings dieser Person helfen kann\\n\\n### 6\u65039 \u8419  Allgemeine Bewertung mit Sternen\\nNach der Methodenempfehlung f\'fcge eine **Gesamtbewertung** hinzu:\\n\\n## \u55357 \u56522  Gesamtbewertung deiner Moderation\\n\\n**Bewertung:** \u11088 \u11088 \u11088 \u11088 \u11088  (X/5 Sternen)\\n\\n**\u9989  Deine Hauptst\'e4rken:**  \\n[1-2 S\'e4tze: Was hast du konkret gut gemacht? Benenne spezifische Verhaltensweisen oder Momente.]\\n\\n**\u55356 \u57263  Deine gr\'f6\'dfte Entwicklungschance:**  \\n[1-2 S\'e4tze: Was ist DER eine wichtigste Punkt, an dem du arbeiten solltest? Sei pr\'e4zise und konkret.]\\n\\n**\u55357 \u56520  Gesamteindruck:**  \\n[1-2 S\'e4tze: Wie effektiv war deine Moderation insgesamt? Was war die Hauptauswirkung auf das Meeting?]\\n\\n**\u55357 \u56960  Dein Potenzial:**  \\n[1-2 S\'e4tze: Welches Potenzial hast du, wenn du die Empfehlungen umsetzt? Sei ermutigend und zukunftsorientiert.]\\n\\n---\\n\\n**Bewertungskriterien f\'fcr Sterne:**\\n- \u11088 \u11088 \u11088 \u11088 \u11088  (5/5): Exzellente Moderation - klare Struktur, gute Teilnehmerf\'fchrung, Ziele erreicht, kleine Optimierungsm\'f6glichkeiten\\n- \u11088 \u11088 \u11088 \u11088  (4/5): Gute Moderation - solide Struktur, die meisten Ziele erreicht, ein paar deutliche Verbesserungspotenziale\\n- \u11088 \u11088 \u11088  (3/5): Durchschnittliche Moderation - grundlegende Struktur vorhanden, wichtige Aspekte fehlen, mehrere Entwicklungschancen\\n- \u11088 \u11088  (2/5): Ausbauf\'e4hige Moderation - wenig Struktur, Ziele unklar, viele wichtige Moderationstechniken fehlen\\n- \u11088  (1/5): Schwache Moderation - kaum Struktur erkennbar, Meeting ohne klare F\'fchrung, grundlegende Moderationsprinzipien werden nicht umgesetzt\\n\\n**WICHTIG:** \\n- Jede Kategorie (\u9989  \u55356 \u57263  \u55357 \u56520  \u55357 \u56960 ) bekommt einen eigenen Absatz\\n- Halte jeden Absatz auf 1-2 S\'e4tze (nicht mehr!)\\n- Die Bewertung muss nachvollziehbar sein - begr\'fcnde die Sternzahl anhand der konkreten Beobachtungen\\n- Der Leser muss sofort sehen: St\'e4rken \u8594  Problem \u8594  Auswirkung \u8594  L\'f6sung\\n- Gesamtl\'e4nge: 500-900 W\'f6rter \\nBeginne Das Meeting mit:\\"##Hallo \{\{ $('Webhook1').item.json.body.name \}\}, hier ist das Feedback zu deinem Meeting!\\"\\"\\n"\
+        \}\
+      \},\
+      "type": "@n8n/n8n-nodes-langchain.agent",\
+      "typeVersion": 2.2,\
+      "position": [\
+        -496,\
+        656\
+      ],\
+      "id": "cf508c29-b5fd-412e-8854-78a2bdc42fd8",\
+      "name": "AI Agent4"\
+    \},\
+    \{\
+      "parameters": \{\
+        "model": \{\
+          "__rl": true,\
+          "mode": "list",\
+          "value": "claude-sonnet-4-20250514",\
+          "cachedResultName": "Claude 4 Sonnet"\
+        \},\
+        "options": \{\}\
+      \},\
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",\
+      "typeVersion": 1.3,\
+      "position": [\
+        -496,\
+        848\
+      ],\
+      "id": "312d69a9-ea26-4df2-ad1e-299f82aaf9a6",\
+      "name": "Anthropic Chat Model1",\
+      "credentials": \{\
+        "anthropicApi": \{\
+          "id": "A2XkannFTq7SFcVt",\
+          "name": "Anthropic account"\
+        \}\
+      \}\
+    \},\
+    \{\
+      "parameters": \{\
+        "mode": "markdownToHtml",\
+        "markdown": "=\{\{ $json.output \}\}",\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.markdown",\
+      "typeVersion": 1,\
+      "position": [\
+        -160,\
+        656\
+      ],\
+      "id": "b4b253ba-9213-4c18-935b-1929235a63f9",\
+      "name": "Markdown3"\
+    \},\
+    \{\
+      "parameters": \{\
+        "html": "<!DOCTYPE html>\\n\\n<html>\\n<head>\\n  <meta charset=\\"UTF-8\\" />\\n  <title>My HTML document</title>\\n</head>\\n<body>\\n  <div class=\\"container\\">\\n    \{\{ $json.data \}\}\\n  </div>\\n</body>\\n</html>\\n\\n<style>\\n.container \{\\n  background-color: #ffffff;\\n  text-align: center;\\n  padding: 16px;\\n  border-radius: 8px;\\n\}\\n\\nh1 \{\\n  color: #ff6d5a;\\n  font-size: 24px;\\n  font-weight: bold;\\n  padding: 8px;\\n\}\\n\\nh2 \{\\n  color: #909399;\\n  font-size: 18px;\\n  font-weight: bold;\\n  padding: 8px;\\n\}\\n</style>\\n\\n<script>\\nconsole.log(\\"Hello World!\\");\\n</script>"\
+      \},\
+      "type": "n8n-nodes-base.html",\
+      "typeVersion": 1.2,\
+      "position": [\
+        16,\
+        656\
+      ],\
+      "id": "b9be9a56-3725-4311-a89f-2313d45ba496",\
+      "name": "HTML3"\
+    \},\
+    \{\
+      "parameters": \{\
+        "sendTo": "=\{\{ $json.body.email \}\}",\
+        "subject": "Meeting Feedback",\
+        "message": "=\{\{ $json.html \}\}",\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.gmail",\
+      "typeVersion": 2.1,\
+      "position": [\
+        480,\
+        672\
+      ],\
+      "id": "227b9403-1eeb-4660-b02a-dd1ac0854b2b",\
+      "name": "Send a message",\
+      "webhookId": "54b3f240-e4c1-4973-97d9-8455cceaa0ce",\
+      "credentials": \{\
+        "gmailOAuth2": \{\
+          "id": "Zbedyw1n8yd1IvsC",\
+          "name": "Gmail account"\
+        \}\
+      \}\
+    \},\
+    \{\
+      "parameters": \{\
+        "mode": "combine",\
+        "combineBy": "combineAll",\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.merge",\
+      "typeVersion": 3.2,\
+      "position": [\
+        304,\
+        672\
+      ],\
+      "id": "b5d53759-53fd-4fca-8231-f29cd4aea082",\
+      "name": "Merge1"\
+    \},\
+    \{\
+      "parameters": \{\
+        "content": "## Finales Feedback",\
+        "height": 560,\
+        "width": 1168\
+      \},\
+      "type": "n8n-nodes-base.stickyNote",\
+      "position": [\
+        -1056,\
+        624\
+      ],\
+      "typeVersion": 1,\
+      "id": "8ad98826-4cb5-48b6-a473-233980a437cd",\
+      "name": "Sticky Note3"\
+    \},\
+    \{\
+      "parameters": \{\
+        "content": "## Email Versand",\
+        "height": 560,\
+        "width": 1472,\
+        "color": 6\
+      \},\
+      "type": "n8n-nodes-base.stickyNote",\
+      "position": [\
+        112,\
+        624\
+      ],\
+      "typeVersion": 1,\
+      "id": "68effe0c-0750-49fa-bf24-a8b45b1a6bb1",\
+      "name": "Sticky Note4"\
+    \},\
+    \{\
+      "parameters": \{\
+        "operation": "pdf",\
+        "binaryPropertyName": "file",\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.extractFromFile",\
+      "typeVersion": 1,\
+      "position": [\
+        -768,\
+        128\
+      ],\
+      "id": "51cb6e88-c80d-4dd0-a0de-e4f0d7a62b74",\
+      "name": "Extract from File"\
+    \},\
+    \{\
+      "parameters": \{\
+        "jsCode": "// Universeller Parser f\'fcr Zeilen im Format:\\n// SPEAKER (MM:SS): Text...\\n// SPEAKER (HH:MM:SS): Text...\\n\\nconst input = $input.first().json.text;\\n\\n// 1. Textquelle bestimmen\\nlet rawText;\\nif (typeof input === 'string') \{\\n  rawText = input;\\n\} else if (typeof input.text === 'string') \{\\n  rawText = input.text;\\n\} else \{\\n  throw new Error('Kein Text gefunden. Erwartet: json ist ein String oder json.text ist ein String.');\\n\}\\n\\n// 2. Zeilen normalisieren\\nrawText = rawText.replace(/\\\\r\\\\n/g, '\\\\n').trim();\\nconst lines = rawText.split('\\\\n');\\n\\n// 3. Regex:\\n// - Sprecher: alles bis zum ersten \\" (\\" (lazy)\\n// - Timestamp: MM:SS oder HH:MM:SS\\n// - Danach \\": \\" und der Content\\nconst lineRegex = /^(.+?) \\\\((\\\\d\{1,2\}:\\\\d\{2\}(?::\\\\d\{2\})?)\\\\):\\\\s*(.*)$/;\\n\\nconst turns = [];\\n\\nfor (const line of lines) \{\\n  const trimmed = line.trim();\\n  if (!trimmed) \{\\n    continue; // leere Zeilen ignorieren\\n  \}\\n\\n  const match = trimmed.match(lineRegex);\\n\\n  if (match) \{\\n    const speaker = match[1].trim();\\n    const timestamp = match[2].trim();\\n    const content = match[3].trim();\\n\\n    turns.push(\{\\n      speaker,\\n      from: timestamp,\\n      to: null,  // wird sp\'e4ter gesetzt\\n      content,\\n    \});\\n  \} else \{\\n    // Zeilen, die NICHT dem Muster entsprechen:\\n    // -> an den letzten Turn anh\'e4ngen (mehrzeilige Statements)\\n    if (turns.length > 0) \{\\n      turns[turns.length - 1].content += ' ' + trimmed;\\n    \} else \{\\n      // Falls ganz am Anfang irgendwas steht (z.B. \\"Meeting Transcript ...\\"),\\n      // ignorieren wir es einfach.\\n      continue;\\n    \}\\n  \}\\n\}\\n\\n// 4. 'to'-Zeitstempel aus dem jeweils n\'e4chsten 'from' ableiten\\nfor (let i = 0; i < turns.length - 1; i++) \{\\n  turns[i].to = turns[i + 1].from;\\n\}\\n\\n// Letzter Turn bleibt mit to = null, kann aber bei Bedarf auch auf from gesetzt werden:\\n// if (turns.length > 0) \{\\n//   turns[turns.length - 1].to = turns[turns.length - 1].from;\\n// \}\\n\\n// 5. Ergebnis zur\'fcckgeben\\nreturn [\\n  \{\\n    json: \{\\n      dialog: turns,\\n    \},\\n  \},\\n];\\n"\
+      \},\
+      "type": "n8n-nodes-base.code",\
+      "typeVersion": 2,\
+      "position": [\
+        -496,\
+        128\
+      ],\
+      "id": "039da227-542e-4c04-8e83-e26971edc5f1",\
+      "name": "Code in JavaScript4"\
+    \},\
+    \{\
+      "parameters": \{\
+        "assignments": \{\
+          "assignments": [\
+            \{\
+              "id": "834e774c-0758-4fd5-a64d-03efbe59041e",\
+              "name": "dialog",\
+              "value": "=\{\{ $json.dialog \}\}",\
+              "type": "string"\
+            \}\
+          ]\
+        \},\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.set",\
+      "typeVersion": 3.4,\
+      "position": [\
+        -288,\
+        128\
+      ],\
+      "id": "edf6b082-1ce5-43c8-aa63-31426395c2a2",\
+      "name": "Edit Fields4"\
+    \},\
+    \{\
+      "parameters": \{\
+        "html": "=\{\{ $json.output \}\}",\
+        "options": \{\}\
+      \},\
+      "type": "n8n-nodes-base.markdown",\
+      "typeVersion": 1,\
+      "position": [\
+        352,\
+        0\
+      ],\
+      "id": "3f91050a-2d70-48dc-a99b-bec9c31d0b37",\
+      "name": "Markdown"\
+    \},\
+    \{\
+      "parameters": \{\
+        "html": "<!DOCTYPE html>\\n\\n<html>\\n<head>\\n  <meta charset=\\"UTF-8\\" />\\n  <title>My HTML document</title>\\n</head>\\n<body>\\n  <div class=\\"container\\">\\n    \{\{ $json.data \}\}\\n  </div>\\n</body>\\n</html>\\n\\n<style>\\n.container \{\\n  background-color: #ffffff;\\n  text-align: center;\\n  padding: 16px;\\n  border-radius: 8px;\\n\}\\n\\nh1 \{\\n  color: #ff6d5a;\\n  font-size: 24px;\\n  font-weight: bold;\\n  padding: 8px;\\n\}\\n\\nh2 \{\\n  color: #909399;\\n  font-size: 18px;\\n  font-weight: bold;\\n  padding: 8px;\\n\}\\n</style>\\n\\n<script>\\nconsole.log(\\"Hello World!\\");\\n</script>"\
+      \},\
+      "type": "n8n-nodes-base.html",\
+      "typeVersion": 1.2,\
+      "position": [\
+        624,\
+        16\
+      ],\
+      "id": "6da15c72-e34f-4b6b-8919-4bed5dad861d",\
+      "name": "HTML"\
+    \},\
+    \{\
+      "parameters": \{\
+        "content": "## Preprocesing zu multi turn JSON & Erstes Feedback ",\
+        "height": 560,\
+        "width": 1728,\
+        "color": 4\
+      \},\
+      "type": "n8n-nodes-base.stickyNote",\
+      "position": [\
+        -1056,\
+        64\
+      ],\
+      "typeVersion": 1,\
+      "id": "93a42f65-1a9b-47fb-8b47-ff8ff88c3ba3",\
+      "name": "Sticky Note1"\
+    \}\
+  ],\
+  "connections": \{\
+    "AI Agent": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "AI Agent3",\
+            "type": "main",\
+            "index": 0\
+          \},\
+          \{\
+            "node": "Merge",\
+            "type": "main",\
+            "index": 1\
+          \},\
+          \{\
+            "node": "Markdown",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Webhook1": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "Merge3",\
+            "type": "main",\
+            "index": 1\
+          \},\
+          \{\
+            "node": "Merge1",\
+            "type": "main",\
+            "index": 1\
+          \},\
+          \{\
+            "node": "Extract from File",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Anthropic Chat Model": \{\
+      "ai_languageModel": [\
+        [\
+          \{\
+            "node": "AI Agent",\
+            "type": "ai_languageModel",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Merge3": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "AI Agent",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "AI Agent3": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "Edit Fields3",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Supabase Vector Store1": \{\
+      "ai_tool": [\
+        [\
+          \{\
+            "node": "AI Agent3",\
+            "type": "ai_tool",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Embeddings OpenAI": \{\
+      "ai_embedding": [\
+        [\
+          \{\
+            "node": "Supabase Vector Store1",\
+            "type": "ai_embedding",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "OpenAI Chat Model5": \{\
+      "ai_languageModel": [\
+        [\
+          \{\
+            "node": "AI Agent3",\
+            "type": "ai_languageModel",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Edit Fields3": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "Merge",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Merge": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "AI Agent4",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "AI Agent4": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "Markdown3",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Anthropic Chat Model1": \{\
+      "ai_languageModel": [\
+        [\
+          \{\
+            "node": "AI Agent4",\
+            "type": "ai_languageModel",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Markdown3": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "HTML3",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "HTML3": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "Merge1",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Merge1": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "Send a message",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Extract from File": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "Code in JavaScript4",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Code in JavaScript4": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "Edit Fields4",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Edit Fields4": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "Merge3",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \},\
+    "Markdown": \{\
+      "main": [\
+        [\
+          \{\
+            "node": "HTML",\
+            "type": "main",\
+            "index": 0\
+          \}\
+        ]\
+      ]\
+    \}\
+  \},\
+  "pinData": \{\},\
+  "meta": \{\
+    "templateCredsSetupCompleted": true,\
+    "instanceId": "aeb1b639fb734b1b4ae663f0c731f21801b39012cdc225baf8c5eff24ce23660"\
+  \}\
+\}}
